@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演戏</title>
+    <style>
+        #bn{
+            visibility:hidden;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="yes" id="bt"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="yes" id="bn"/>
+    <script>
+        // 把
+        function yesword(vis_id, hidden_id){
+            document.getElementById(hidden_id).style.visibility="hidden";
+            document.getElementById(vis_id).style.visibility="visible";
+            
+            
+        }
+        document.getElementById("bt").onclick = function (){ yesword("bn","bt") }; 
+        document.getElementById("bn").onclick = function (){ yesword("bt","bn")}
+
+    </script>
+</body>
+</html>

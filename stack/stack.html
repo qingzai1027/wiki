@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栈的基础操作</title>
+</head>
+
+<body>
+    <script>
+        // 栈类
+        function Stack() {
+            // 栈中的属性
+            this.items = []
+
+            // 栈相关的方法
+            // 压栈操作
+            Stack.prototype.push = function (element) {
+                this.items.push(element)
+            }
+
+            // 出栈操作
+            Stack.prototype.pop = function () {
+                return this.items.pop()
+            }
+
+            // 查看一下栈顶元素
+            Stack.prototype.peek = function () {
+                return this.items[items.length - 1]
+            }
+
+            // 判断栈中的元素是否为空
+            Stack.prototype.isEmpty = function () {
+                return this.items.length == 0
+            }
+
+            // 获取栈中元素的个数
+            Stack.prototype.size = function () {
+                return this.items.length
+            }
+
+            //toString方法
+            Stack.prototype.toString = function () {
+                var resultString = ''
+                for (var i = 0; i < this.items.length; i++) {
+                    resultString += this.items[i] + ''
+                }
+                return resultString
+            }
+
+        }
+
+        var s = new Stack()
+        s.push(20)
+
+        s.push(10)
+        s.push(100)
+        s.push(77)
+        alert(s)
+
+
+        // 封装十进制转二进制的函数
+        function dec2bin(decNumer) {
+            // 定义变量
+            var stack = new Stack()
+            var remainder;
+
+            // 循环除法
+            while (decNumer > 0) {
+                remainder = decNumer % 2
+                decNumer = Math.floor(decNumer / 2)
+                stack.push(remainder)
+            }
+
+            // 将数据取出
+            var binayriStrng = ""
+            while (!stack.isEmpty()) {
+                binayriStrng += stack.pop()
+            }
+            return binayriStrng
+        }
+
+
+        
+        // 测试函数
+        alert(dec2bin(10))
+        alert(dec2bin(233))
+        alert(dec2bin(1000))
+    </script>
+</body>
+
+</html>
